@@ -58,14 +58,6 @@ a {
 	background: #99CCFF;
 }
 
-.left-text {
-	float: left;
-}
-
-.right-text {
-	float: right;
-}
-
 table.emails{
 	width: 100%;
 	height: 80%;
@@ -80,4 +72,8 @@ td {
 h1 {
 	color: #FFFFFF;
     font-size: 20px;
+}
+
+h2 {
+	font-size: 12px;
 }
