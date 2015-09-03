@@ -1,0 +1,48 @@
+html, body, div, h1, form, fieldset, input, textarea, li, ul, hr, select {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+body {
+    background: #FFF;
+}
+body, a, input, textarea, select{
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.3;
+}
+a {
+	font-size: 20px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.header {
+	background: #0072C6;
+    padding: 10px;
+}
+
+.selection {
+	font-size: 18px;
+	text-align: center;
+    position:absolute;
+    left: 0; top: 46px; bottom: 0;
+    width: 178px;
+	background: #99CCFF;
+}
+
+.main {
+	position: absolute;
+	left: 200px; top: 70px; bottom: 0;
+	
+}
+
+
+
+h1 {
+	color: #FFFFFF;
+    font-size: 20px;
+}
