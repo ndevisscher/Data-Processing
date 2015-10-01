@@ -369,7 +369,8 @@
   2014/12/31,   76
 </textarea>
 <br><br><br><br>
-
+<h1>Temperature graph for 2014 for the Bilt</h1>
+<br>
 <canvas id="graph" width="1100" height="1000" style="position:absolute" top="0:" left="0:"></canvas>
 
 <canvas id="locator" width="1100" height="1000" style="position:absolute" top="0:" left="0:"></canvas>
@@ -383,6 +384,10 @@
 </div>
 
 <style>
+h1 {
+	font-size:30px;
+	text-align: center;
+}
 #dates {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -433,7 +438,7 @@ for (var i in datap){
 }
 
 var months = ["jan","feb","mar","apr","may","jun","jul","aug","sept","okt","nov","dec"];
-var tempRange = [30,25,20,15,10,5,0,-5];
+var tempRange = [30,25,20,15,10,5,0];
 
 function createTransform(domain, range){
 	// domain is a two-element array of the domains bounds
@@ -454,12 +459,7 @@ highest = Math.max.apply(Math, temperature);
 var transformY = createTransform([lowest, highest], [0, 500]);
 var transformX = createTransform([0, 365], [100,1100]);
 var transformMonth = createTransform([0, 12], [100,1100]);
-var transformTemp = createTransform([0, 8], [0, 500]);
-
-//Adding a title
-ctx.beginPath();
-ctx.font = "20px Arial";
-ctx.fillText("Temperature graph for 2014", 150,25);
+var transformTemp = createTransform([0, 7], [0, 580]);
 
 //Making the axis
 ctx.beginPath();
@@ -470,14 +470,12 @@ ctx.stroke();
 ctx.moveTo(100,0);
 
 //Displaying the temperature range
-x = 0;
 for(var i = 0; i < tempRange.length; i ++) {
 	ctx.font = "20px Arial";
-    ctx.fillText(tempRange[i], 60, transformTemp(i));
-	ctx.moveTo(100-5,60+x);
-	ctx.lineTo(100+5,60+x);
+    ctx.fillText(tempRange[i], 60, transformTemp(i)+15);
+	ctx.moveTo(100-5,transformTemp(i)+5);
+	ctx.lineTo(100+5,transformTemp(i)+5);
 	ctx.stroke();
-	x+=63;
 }
 
 //Adding y-axis description
@@ -536,6 +534,8 @@ function myFunction(e) {
     var x = e.clientX-clientRect.left;
     var y = e.clientY-clientRect.top;
 
+	console.log(x,y);
+	
 	var dateX = (x-100)/(1000/365);
 
 	//Getting the right dates and temperatures for the current mouse location
