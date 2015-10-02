@@ -414,21 +414,6 @@ var datap = [["2014/01/01", "99"], ["2014/01/02", "103"], ["2014/01/03", "122"],
 var canvas = document.getElementById("graph");
 var ctx = canvas.getContext("2d");
 
-var x = document.getElementById("KNMI").value;
-var datapoints = x.split(/\r\n|\n/);
-datapoints.shift();
-datapoints.pop();
-var ix = [];
-var temperature = [];
-var dates = [];
-for (var i in datapoints){
-	ix = datapoints[i].split(',');
-	ix[0] = ix[0].trim();
-	dates.push(ix[0]);
-	ix[1] = ix[1].trim();
-	temperature.push(parseInt(ix[1])/10);
-}
-
 //Making the dates and temperature variables from the JSON data
 var temperature = [];
 var dates =[];
@@ -519,7 +504,6 @@ for (var i in temperature){
 </script>
 
 <script>
-//JSON data (i couldn't read it in from file so i just put it in here)
 
 var locations = document.getElementById("locator");
 var loc = locations.getContext("2d");
